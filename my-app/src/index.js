@@ -41,7 +41,37 @@ return(
 }
 }
 
+class Inputfeld extends React.Component{
 
+constructor(props){
+super(props);
+this.state = {value: ''};
+this.handleChange = this.handleChange.bind(this);
+this.handleSubmit = this.handleSubmit.bind(this);
+}
+
+//Mehtoden in Klassen ohne "Function"
+handleChange(event){
+this.setState({value: event.target.value});
+}
+
+handleSubmit(event){
+alert('Nutzername wurde eingegeben: ' + this.state.value);
+//Verhindert neu laden der Seite
+event.preventDefault();
+}
+
+render(){
+return(
+<div>
+<form onSubmit={this.handleSubmit}>
+<input id="username" value={this.state.value} onChange={this.handleChange}></input>
+<input type="submit" value="Absenden"></input>
+</form>
+</div>
+);
+}
+}
 
 
 ReactDOM.render(
@@ -50,6 +80,7 @@ ReactDOM.render(
 <Props name="Timo" essen="Döner" />
 <Props name="Lilly" essen="Pizza" />
 <Children childname="Children">Text im Children</Children> 
+<Inputfeld />
 </div>,
 document.getElementById('root')
 );
