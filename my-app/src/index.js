@@ -21,7 +21,7 @@ this.setState({value: 'geklickt'})}>{this.state.value}</button>
 class Props extends React.Component{
 render(){
 return(
-<div>Ich esse gerne: {this.props.essen}</div>
+<div>{this.props.name} isst gerne: {this.props.essen}</div>
 );
 }
 }
@@ -47,8 +47,8 @@ this.render_button()
 ReactDOM.render(
 <div>
 <Component />
-<Props essen="Döner" />
-<Props essen="Pizza" />
+<Props name="Timo" essen="Döner" />
+<Props name="Lilly" essen="Pizza" />
 </div>,
 document.getElementById('root')
 );
