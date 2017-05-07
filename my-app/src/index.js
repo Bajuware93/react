@@ -18,6 +18,8 @@ this.setState({value: 'geklickt'})}>{this.state.value}</button>
 }
 }
 
+//In der Klasse wird die Ausgabe zusammengestellt.(wie wird ausgegeben) 
+//Die Property Werte werden in der ReactDOM.render Funktion übergeben (was wird ausgegben)
 class Props extends React.Component{
 render(){
 return(
@@ -25,6 +27,34 @@ return(
 );
 }
 }
+
+
+//Ohne this.props.children wird "Text im Children" nicht ausgegeben
+class Children extends React.Component{
+render(){
+return(
+<div>
+<p>{this.props.childname}</p>
+<p>{this.props.children}</p>
+</div>
+);
+}
+}
+
+
+
+
+ReactDOM.render(
+<div>
+<Component />
+<Props name="Timo" essen="Döner" />
+<Props name="Lilly" essen="Pizza" />
+<Children childname="Children">Text im Children</Children> 
+</div>,
+document.getElementById('root')
+);
+
+
 
 /*class MainComponent extends React.Component{
 /* Die Funktion gibt Component aus und fügt die props value hinzu
@@ -43,15 +73,5 @@ this.render_button()
 }
 
 } */
-
-ReactDOM.render(
-<div>
-<Component />
-<Props name="Timo" essen="Döner" />
-<Props name="Lilly" essen="Pizza" />
-</div>,
-document.getElementById('root')
-);
-
 
 
