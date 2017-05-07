@@ -43,9 +43,10 @@ return(
 
 class Inputfeld extends React.Component{
 
-constructor(props){
-super(props);
+constructor(){
+super();
 this.state = {value: ''};
+// This binding is necessary to make `this` work in the callback
 this.handleChange = this.handleChange.bind(this);
 this.handleSubmit = this.handleSubmit.bind(this);
 }
