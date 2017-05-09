@@ -1,8 +1,8 @@
 <html>
 <head>
-<script src="https://unpkg.com/react@15/dist/react.js"></script>
-<script src="https://unpkg.com/react-dom@15/dist/react-dom.js"></script>
-<script src="http://fb.me/JSXTransformer-0.12.2.js"></script>
+    <script src="https://unpkg.com/react@15/dist/react.js"></script>
+    <script src="https://unpkg.com/react-dom@15/dist/react-dom.js"></script>
+    <script src="http://fb.me/JSXTransformer-0.12.2.js"></script>
 
 </head>
 <body>
@@ -10,28 +10,38 @@
 
 <script type="text/jsx">
 
-class Component extends React.Component{
-constructor(){
-super();
-this.state = {
-value: 'Anfangsstatus'
-};
-}
-render(){
-return(
-<div>
-<button className="component" onClick={() =>
-this.setState({value: 'geklickt'})}>{this.state.value}</button>
-</div>
-);
-}
-}
+    class Component extends React.Component {
+        constructor() {
+            super();
+            this.state = {
+                value: 0
+            };
+           this.changeStatus = this.changeStatus.bind(this);
+        }
+
+        changeStatus(event){
+
+            if( this.state.value == 0) {
+                this.setState( {value: 1} );
+            } else{
+                this.setState( {value: 0} );
+            }
+        }
+
+        render() {
+            return (
+                    <div>
+                       <input type="submit" value={this.state.value} onClick={this.changeStatus}></input>
+                    </div>
+            );
+        }
+    }
 
 
-ReactDOM.render(
-  <Component />,
-  document.getElementById('root')
-);
+    ReactDOM.render(
+            <Component />,
+            document.getElementById( 'root' )
+    );
 </script>
 </body>
 
