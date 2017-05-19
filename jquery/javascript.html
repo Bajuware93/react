@@ -1,0 +1,66 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+ <script>
+$(function(){
+$('.save-comment').click( function (event){
+event.preventDefault();
+alert("Hallo");
+alert(href);
+});
+
+var href = $('a.save-comment').attr('href');
+
+$('#changeh1').click( function (){
+$('h1').html('<a href="www.google.de">Nach Jquery</a>');
+});
+
+$('#ajax').click( function (){
+	$.ajax({
+	url: "ajax.txt",
+	success: function(result){
+		$('#target_ajax').html(result);
+	}});
+	
+
+});
+
+$('#input_ajax_btn').click( function (){
+
+var input_val = $('#input_ajax').val();
+
+$.ajax({
+url: "ajax_php.php",
+data: {id : input_val},
+type: "POST",
+success: function(result){
+$('#target_ajax').html(result);
+}
+});
+
+});
+
+
+/*function test(){
+alert("Hallo");
+} */
+});
+</script>
+ <h1>Bevor Jquery</h1>
+ <input type="submit" id="changeh1" value="Change H1">
+ <a class="save-comment" href="https://www.w3schools.com">Visit W3Schools.com!</a> 
+<br>
+ <input type="submit" id="ajax" value="Ajax">
+ <h2 id="target_ajax">Bevor Ajax</h2>
+ 
+ <input type="text" id="input_ajax">
+ <input type="submit" id="input_ajax_btn" value="Ajax mit Data">
+
+</body>
+
+
+</html>
