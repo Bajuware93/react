@@ -1,0 +1,38 @@
+<html>
+<head>
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            $('#btn').click( function (){
+
+                var input = $('#txt').val();
+                alert(input);
+
+                $.ajax({
+                    url: "ajax_php.php",
+                    data: {id: input},
+                    type: "POST"
+                }).done(function(data){
+                   console.log(data);
+                    if( data !=""){
+                    $('h1').html(data);
+                    }
+                }).fail(function(data){
+                    alert("Ajax fehlgeschlagen");
+                });
+
+            });
+
+        });
+		//Done und fail ersetzen success und error 
+		//Error nur wenn Request fehlschlaegt. Nicht wenn Data == "", da Request erfolgreich ausgeführt aber die Anwort leer etc.ist
+    </script>
+</head>
+<body>
+<input type="text" id="txt">
+<input type="submit" id="btn" value="Ajax Request">
+<h1>Bevor Jquery</h1>
+</body>
+
+</html>
