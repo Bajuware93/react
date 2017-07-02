@@ -1,5 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import ExterneComponente from './comp/import_custom';
+import Inputfeld from './comp/input_feld';
+import Inputfeld2 from './comp/input_feld2';
+import Example from './comp/modal';
+
 
 class Component extends React.Component{
 constructor(){
@@ -41,38 +46,6 @@ return(
 }
 }
 
-class Inputfeld extends React.Component{
-
-constructor(props){
-super(props);
-this.state = {value: ''};
-this.handleChange = this.handleChange.bind(this);
-this.handleSubmit = this.handleSubmit.bind(this);
-}
-
-//Mehtoden in Klassen ohne "Function"
-handleChange(event){
-this.setState({value: event.target.value});
-}
-
-handleSubmit(event){
-alert('Nutzername wurde eingegeben: ' + this.state.value);
-//Verhindert neu laden der Seite
-event.preventDefault();
-}
-
-render(){
-return(
-<div>
-<form onSubmit={this.handleSubmit}>
-<input id="username" value={this.state.value} onChange={this.handleChange}></input>
-<input type="submit" value="Absenden"></input>
-</form>
-</div>
-);
-}
-}
-
 
 ReactDOM.render(
 <div>
@@ -81,6 +54,9 @@ ReactDOM.render(
 <Props name="Lilly" essen="Pizza" />
 <Children childname="Children">Text im Children</Children> 
 <Inputfeld />
+<ExterneComponente />
+<Inputfeld2 />
+<Example />
 </div>,
 document.getElementById('root')
 );
